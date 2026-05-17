@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M&A Creators | Sistema de Ventas Digitales</title>
+    <link rel="stylesheet" href="pagina.css">
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '972378828498578');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=972378828498578&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<header class="header">
+  <div class="nav container">
+    <h2 class="logo-text">M&A Creators</h2>
+    <nav id="menu">
+      <a href="#">Inicio</a>
+      <a href="#services">Servicios</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+
+  </div>
+</header>
+
+<div class="trust-bar">Transformamos tu marca en una máquina de generación de clientes</div>
+
+<section class="hero">
+  <div class="hero-container">
+    <div class="hero-left">
+      <h1>Sistema Estratégico 360° De Ventas</h1>
+      <p class="subtitle">En M&A Creators no somos una productora... <strong>Somos un sistema de ventas.</strong> Diseñamos ecosistemas completos que convierten la atención en clientes reales.</p>
+      <div class="hero-bullets">
+        <span><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/checkmarx.svg" class="icon-white"> Analisis</span>
+        <span><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/checkmarx.svg" class="icon-white"> Atracción</span>
+        <span><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/checkmarx.svg" class="icon-white"> Conversión</span>
+        <span><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/checkmarx.svg" class="icon-white"> Seguimiento</span>
+      </div>
+    </div>
+
+<div class="hero-right">
+  <div class="video-wrapper vertical-format">
+    <video autoplay muted loop playsinline id="heroVideo" class="hero-video">
+      <source src="IMG_2406.MP4" type="video/mp4">
+    </video>
+    <button id="muteBtn" class="mute-control">
+      <span id="muteIcon">🔇</span>
+    </button>
+  </div>
+</section>
+
+<section class="master-offer container">
+    <div class="master-card">
+        <div class="master-content">
+            <h2 class="master-title">¿QUIERES DOMINAR POR COMPLETO TU MERCADO?</h2>
+            <div class="master-cta-wrapper">
+               <a href="https://api.whatsapp.com/send?phone=573017726817&text=Hola,%20vengo%20del%20anuncio%20y%20quiero%20recibir%20el%20diagn%C3%B3stico%20gratuito..." class="btn-glow">Recibir Mi Diagnostico Gratuito</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="pixel-metrics container">
+    <div class="metrics-grid">
+        <div class="metric-item">
+            <h3 class="counter" data-target="100">0%</h3>
+            <p>Efectividad en Meta Ads</p>
+        </div>
+        <div class="metric-item">
+            <h3 class="counter" data-target="98">0%</h3>
+            <p>Clientes Satisfechos</p>
+        </div>
+        <div class="metric-item">
+            <h3 class="counter-text" data-text="ROI">***</h3>
+            <p>Optimizado con IA</p>
+        </div>
+    </div>
+
+<div class="modal" id="modal">
+    <div class="modal-box glass-effect">
+        <span class="close-x" id="closeX">&times;</span>
+        <h3>Tu opinión importa</h3>
+        <p>Cuéntanos tu experiencia con el sistema.</p>
+        
+        <div class="form-group-modal">
+            <input type="text" id="name" placeholder="Tu Nombre o Empresa" required>
+            <input type="text" id="country" placeholder="Tu País/Ciudad" required>
+            <textarea id="comment" placeholder="Escribe tu testimonio aquí..." required></textarea>
+        </div>
+        
+        <div class="modal-buttons">
+            <button id="sendComment" class="btn-strategy">Publicar Testimonio</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="review-modal">
+    <div class="modal-box glass-effect">
+        <div class="success-check">✔</div>
+        <h3>¡Gracias por apoyar a la agencia!</h3>
+        <p>Tu comentario ha sido enviado con éxito.</p>
+        <p>Estará en revisión por uno de nuestros asesores para ser publicado pronto.</p>
+        <button id="closeSuccess" class="btn-strategy" style="margin-top:20px;">Cerrar</button>
+    </div>
+</div>
+
+<section id="results" class="section">
+    <div class="container">
+        <h2 class="section-title"> Esto dicen nuestros clientes</h2>
+        <div class="comments-container">
+            <div id="comments-list"></div>
+        </div>
+        <div style="display: flex; justify-content: center; width: 100%; margin: 40px 0;">
+    <button id="openModal" class="btn-secondary">Dejar mi testimonio</button>
+</div>
+</section>
+
+<section id="contact" class="contact-wrapper container">
+    <div class="agency-info">
+        <img src="LogoAgencia.jpeg" alt="M&A Creators Logo" class="agency-logo">
+        <h2>M&A Creators</h2>
+        <div class="hero-bullets">
+        <p>Expertos en sistemas de ventas automatizados.</p>
+        <span><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/checkmarx.svg" class="icon-white"> Produccion Audiovisual Profesional / IA</span>
+        <span><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/checkmarx.svg" class="icon-white"> Pauta Avanzada en Meta Ads.</span>
+        <span><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/checkmarx.svg" class="icon-white"> Funnels de ventas & Landing Pages</span>
+        <div class="social-icons">
+        </div>
+      </div>
+            <h3>Derechos de autor reservados por M&A Creators.</h3>
+    </div>
+
+
+<footer class="footer-glass">
+    <div class="container-footer">
+        <p>© 2026 M&A Creators | Sistema de Ventas Digitales</p>
+    </div>
+</footer>
+
+<a href="https://api.whatsapp.com/send?phone=573017726817&text=Hola,%20vengo%20del%20anuncio%20y%20quiero%20recibir%20el%20diagn%C3%B3stico%20gratuito..." class="whatsapp-float" target="_blank">
+  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg" alt="WhatsApp">
+</a>
+
+<script src="pagina.js"></script>
+</body>
+</html>
