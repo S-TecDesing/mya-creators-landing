@@ -17,7 +17,7 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '2990898527767523'); // <-- ASEGÚRATE DE QUE ESTE SEA EL ID DE TU NUEVO DATASET
+    fbq('init', '2990898527767523'); // <-- IMPORTANTE: Cambia este ID por el de tu NUEVO conjunto de datos
     fbq('track', 'PageView');
 
     // ==========================================
@@ -25,18 +25,28 @@
     // ==========================================
     document.addEventListener("DOMContentLoaded", function() {
         
-        // 1. RASTREO DE AUDIO NATIVO (EVITA CONFLICTOS CON PAGINA.JS)
-        var videoMya = document.getElementById('heroVideo');
-        if (videoMya) {
-            videoMya.onvolumechange = function() {
-                // Evaluamos directamente el estado nativo del tag <video>
-                if (!videoMya.muted && videoMya.volume > 0) {
-                    fbq('trackCustom', 'AudioVideoActivado', { proyecto: 'Landing M&A Creators' });
-                } else {
-                    fbq('trackCustom', 'AudioVideoSilenciado', { proyecto: 'Landing M&A Creators' });
-                }
-            };
-        }
+        // 1. RASTREO DE AUDIO POR CLIC GLOBAL (DELEGACIÓN DE EVENTOS)
+        document.addEventListener('click', function(evento) {
+            // Buscamos si el clic fue en el botón muteBtn o en el icono de adentro (muteIcon)
+            var target = evento.target;
+            if (target.id === 'muteBtn' || target.id === 'muteIcon' || target.closest('#muteBtn')) {
+                
+                // Forzamos un retraso mínimo para leer el cambio físico en el tag video
+                setTimeout(function() {
+                    var videoMya = document.getElementById('heroVideo');
+                    if (videoMya) {
+                        if (!videoMya.muted) {
+                            fbq('trackCustom', 'AudioVideoActivado', { proyecto: 'Landing M&A Creators' });
+                        } else {
+                            fbq('trackCustom', 'AudioVideoSilenciado', { proyecto: 'Landing M&A Creators' });
+                        }
+                    } else {
+                        // Respaldo técnico: Si el video no responde, reportamos el clic genérico al botón de sonido
+                        fbq('trackCustom', 'ClicBotonSonido', { proyecto: 'Landing M&A Creators' });
+                    }
+                }, 100);
+            }
+        });
 
         // 2. RASTREO DE TODOS LOS BOTONES DE WHATSAPP (MULTI-BOTÓN)
         var botonesWhatsapp = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]');
@@ -117,11 +127,11 @@
             <h3 class="counter" data-target="100">0%</h3>
             <p>Efectividad en Meta Ads</p>
         </div>
-        <div class="metrics-item">
+        <div class="metric-item">
             <h3 class="counter" data-target="98">0%</h3>
             <p>Clientes Satisfechos</p>
         </div>
-        <div class="metrics-item">
+        <div class="metric-item">
             <h3 class="counter-text" data-text="ROI">***</h3>
             <p>Optimizado con IA</p>
         </div>
