@@ -36,27 +36,27 @@
             });
         }
 
-        // 2. RASTREO DEL BOTÓN DE WHATSAPP
-        var botonWhatsapp = document.querySelector('a[href*="wa.me"], a[href*="whatsapp.com"]');
-        if (botonWhatsapp) {
-            botonWhatsapp.addEventListener('click', function() {
-                fbq('track', 'Contact', { content_name: 'Boton WhatsApp Principal' });
+        // 2. RASTREO DE TODOS LOS BOTONES DE WHATSAPP (CORREGIDO MULTI-BOTÓN)
+        var botonesWhatsapp = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]');
+        botonesWhatsapp.forEach(function(boton, indice) {
+            boton.addEventListener('click', function() {
+                fbq('track', 'Contact', { content_name: 'Boton WhatsApp Numero ' + (indice + 1) });
             });
-        }
+        });
 
-        // 3. RASTREO DEL FORMULARIO DE EMAILJS
-        var formularioMya = document.querySelector('form');
-        if (formularioMya) {
-            formularioMya.addEventListener('submit', function() {
+        // 3. RASTREO DE FORMULARIOS
+        var formularios = document.querySelectorAll('form');
+        formularios.forEach(function(form) {
+            form.addEventListener('submit', function() {
                 fbq('track', 'Lead', { content_name: 'Formulario de Registro Landing' });
             });
-        }
+        });
     });
     </script>
     <noscript>
         <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1654278942501495&ev=PageView&noscript=1"/>
     </noscript>
-    </head>
+</head>
 <body>
 
 <header class="header">
@@ -94,7 +94,9 @@
           <span id="muteIcon">🔇</span>
         </button>
       </div>
-    </div> </div> </section>
+    </div> 
+  </div> 
+</section>
 
 <section class="master-offer container">
     <div class="master-card">
@@ -122,13 +124,16 @@
             <p>Optimizado con IA</p>
         </div>
     </div>
-</section> <div class="modal" id="modal">
+</section> 
+
+<div class="modal" id="modal">
     <div class="modal-box glass-effect">
         <span class="close-x" id="closeX">&times;</span>
         <h3>Tu opinión importa</h3>
         <p>Cuéntanos tu experiencia con el sistema.</p>
         
-        <form id="testimonioForm"> <div class="form-group-modal">
+        <form id="testimonioForm"> 
+            <div class="form-group-modal">
                 <input type="text" id="name" placeholder="Tu Nombre o Empresa" required>
                 <input type="text" id="country" placeholder="Tu País/Ciudad" required>
                 <textarea id="comment" placeholder="Escribe tu testimonio aquí..." required></textarea>
@@ -176,7 +181,9 @@
         </div>
         <h3>Derechos de autor reservados por M&A Creators.</h3>
     </div>
-</section> <footer class="footer-glass">
+</section> 
+
+<footer class="footer-glass">
     <div class="container-footer">
         <p>© 2026 M&A Creators | Sistema de Ventas Digitales</p>
     </div>
