@@ -9,7 +9,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
         <!-- Meta Pixel Code -->
     <!-- Meta Pixel Code -->
-    <script>
+<script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -20,10 +20,47 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1654278942501495');
     fbq('track', 'PageView');
+
+    // ==========================================
+    // CONTROL DE EVENTOS PERSONALIZADOS (M&A Creators)
+    // ==========================================
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        // 1. RASTREO DEL VIDEO (PLAY Y PAUSA)
+        // Buscamos el video por su ID (asegúrate de que tu etiqueta <video> tenga id="heroVideo")
+        var videoMya = document.getElementById('heroVideo');
+        if (videoMya) {
+            videoMya.addEventListener('play', function() {
+                fbq('trackCustom', 'VideoReproducido', { proyecto: 'Landing M&A Creators' });
+            });
+            videoMya.addEventListener('pause', function() {
+                fbq('trackCustom', 'VideoPausado', { proyecto: 'Landing M&A Creators' });
+            });
+        }
+
+        // 2. RASTREO DEL BOTÓN DE WHATSAPP
+        // Buscamos el enlace usando su atributo href que contiene api.whatsapp o wa.me
+        var botonWhatsapp = document.querySelector('a[href*="wa.me"], a[href*="whatsapp.com"]');
+        if (botonWhatsapp) {
+            botonWhatsapp.addEventListener('click', function() {
+                fbq('track', 'Contact', { content_name: 'Boton WhatsApp Principal' });
+            });
+        }
+
+        // 3. RASTREO DEL FORMULARIO DE EMAILJS
+        // Buscamos la etiqueta <form> de tu landing
+        var formularioMya = document.querySelector('form');
+        if (formularioMya) {
+            formularioMya.addEventListener('submit', function() {
+                fbq('track', 'Lead', { content_name: 'Formulario de Registro Landing' });
+            });
+        }
+    });
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1654278942501495&ev=PageView&noscript=1"
     /></noscript>
+    </head>
     <!-- End Meta Pixel Code -->
     </head>
     <body>
