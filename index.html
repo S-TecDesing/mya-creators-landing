@@ -17,7 +17,7 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '2990898527767523'); // Recuerda cambiar este ID si estás usando el nuevo Dataset creado
+    fbq('init', '2990898527767523'); // <-- ASEGÚRATE DE QUE ESTE SEA EL ID DE TU NUEVO DATASET
     fbq('track', 'PageView');
 
     // ==========================================
@@ -25,22 +25,17 @@
     // ==========================================
     document.addEventListener("DOMContentLoaded", function() {
         
-        // 1. RASTREO DE AUDIO DEL VIDEO (ACTIVAR / DESACTIVAR SONIDO)
-        var botonAudio = document.getElementById('muteBtn');
+        // 1. RASTREO DE AUDIO NATIVO (EVITA CONFLICTOS CON PAGINA.JS)
         var videoMya = document.getElementById('heroVideo');
-
-        if (botonAudio && videoMya) {
-            botonAudio.addEventListener('click', function() {
-                // Evaluamos el estado del audio JUSTO DESPUÉS del click del usuario
-                // Si el video quedó SIN silencio (muted == false), significa que activó el sonido
-                setTimeout(function() {
-                    if (!videoMya.muted) {
-                        fbq('trackCustom', 'AudioVideoActivado', { proyecto: 'Landing M&A Creators' });
-                    } else {
-                        fbq('trackCustom', 'AudioVideoSilenciado', { proyecto: 'Landing M&A Creators' });
-                    }
-                }, 50); // Pequeño retraso para dar tiempo a tu script local (pagina.js) de cambiar el estado del tag video
-            });
+        if (videoMya) {
+            videoMya.onvolumechange = function() {
+                // Evaluamos directamente el estado nativo del tag <video>
+                if (!videoMya.muted && videoMya.volume > 0) {
+                    fbq('trackCustom', 'AudioVideoActivado', { proyecto: 'Landing M&A Creators' });
+                } else {
+                    fbq('trackCustom', 'AudioVideoSilenciado', { proyecto: 'Landing M&A Creators' });
+                }
+            };
         }
 
         // 2. RASTREO DE TODOS LOS BOTONES DE WHATSAPP (MULTI-BOTÓN)
@@ -122,11 +117,11 @@
             <h3 class="counter" data-target="100">0%</h3>
             <p>Efectividad en Meta Ads</p>
         </div>
-        <div class="metric-item">
+        <div class="metrics-item">
             <h3 class="counter" data-target="98">0%</h3>
             <p>Clientes Satisfechos</p>
         </div>
-        <div class="metric-item">
+        <div class="metrics-item">
             <h3 class="counter-text" data-text="ROI">***</h3>
             <p>Optimizado con IA</p>
         </div>
