@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M&A Creators | Sistema de Ventas Digitales</title>
-    <link rel="stylesheet" href="pagina.css">
+    <link class="stylesheet" href="pagina.css">
     
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-        <!-- Meta Pixel Code -->
-    <!-- Meta Pixel Code -->
-<script>
+    
+    <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -27,7 +26,6 @@
     document.addEventListener("DOMContentLoaded", function() {
         
         // 1. RASTREO DEL VIDEO (PLAY Y PAUSA)
-        // Buscamos el video por su ID (asegúrate de que tu etiqueta <video> tenga id="heroVideo")
         var videoMya = document.getElementById('heroVideo');
         if (videoMya) {
             videoMya.addEventListener('play', function() {
@@ -39,7 +37,6 @@
         }
 
         // 2. RASTREO DEL BOTÓN DE WHATSAPP
-        // Buscamos el enlace usando su atributo href que contiene api.whatsapp o wa.me
         var botonWhatsapp = document.querySelector('a[href*="wa.me"], a[href*="whatsapp.com"]');
         if (botonWhatsapp) {
             botonWhatsapp.addEventListener('click', function() {
@@ -48,7 +45,6 @@
         }
 
         // 3. RASTREO DEL FORMULARIO DE EMAILJS
-        // Buscamos la etiqueta <form> de tu landing
         var formularioMya = document.querySelector('form');
         if (formularioMya) {
             formularioMya.addEventListener('submit', function() {
@@ -57,13 +53,11 @@
         }
     });
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1654278942501495&ev=PageView&noscript=1"
-    /></noscript>
+    <noscript>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1654278942501495&ev=PageView&noscript=1"/>
+    </noscript>
     </head>
-    <!-- End Meta Pixel Code -->
-    </head>
-    <body>
+<body>
 
 <header class="header">
   <div class="nav container">
@@ -73,7 +67,6 @@
       <a href="#services">Servicios</a>
       <a href="#contact">Contacto</a>
     </nav>
-
   </div>
 </header>
 
@@ -92,16 +85,16 @@
       </div>
     </div>
 
-<div class="hero-right">
-  <div class="video-wrapper vertical-format">
-    <video autoplay muted loop playsinline id="heroVideo" class="hero-video">
-      <source src="IMG_2406.MP4" type="video/mp4">
-    </video>
-    <button id="muteBtn" class="mute-control">
-      <span id="muteIcon">🔇</span>
-    </button>
-  </div>
-</section>
+    <div class="hero-right">
+      <div class="video-wrapper vertical-format">
+        <video autoplay muted loop playsinline id="heroVideo" class="hero-video">
+          <source src="IMG_2406.MP4" type="video/mp4">
+        </video>
+        <button id="muteBtn" class="mute-control">
+          <span id="muteIcon">🔇</span>
+        </button>
+      </div>
+    </div> </div> </section>
 
 <section class="master-offer container">
     <div class="master-card">
@@ -113,7 +106,6 @@
         </div>
     </div>
 </section>
-
 
 <section class="pixel-metrics container">
     <div class="metrics-grid">
@@ -130,22 +122,22 @@
             <p>Optimizado con IA</p>
         </div>
     </div>
-
-<div class="modal" id="modal">
+</section> <div class="modal" id="modal">
     <div class="modal-box glass-effect">
         <span class="close-x" id="closeX">&times;</span>
         <h3>Tu opinión importa</h3>
         <p>Cuéntanos tu experiencia con el sistema.</p>
         
-        <div class="form-group-modal">
-            <input type="text" id="name" placeholder="Tu Nombre o Empresa" required>
-            <input type="text" id="country" placeholder="Tu País/Ciudad" required>
-            <textarea id="comment" placeholder="Escribe tu testimonio aquí..." required></textarea>
-        </div>
-        
-        <div class="modal-buttons">
-            <button id="sendComment" class="btn-strategy">Publicar Testimonio</button>
-        </div>
+        <form id="testimonioForm"> <div class="form-group-modal">
+                <input type="text" id="name" placeholder="Tu Nombre o Empresa" required>
+                <input type="text" id="country" placeholder="Tu País/Ciudad" required>
+                <textarea id="comment" placeholder="Escribe tu testimonio aquí..." required></textarea>
+            </div>
+            
+            <div class="modal-buttons">
+                <button id="sendComment" type="submit" class="btn-strategy">Publicar Testimonio</button>
+            </div>
+        </form>
     </div>
 </div>
 
@@ -166,8 +158,9 @@
             <div id="comments-list"></div>
         </div>
         <div style="display: flex; justify-content: center; width: 100%; margin: 40px 0;">
-    <button id="openModal" class="btn-secondary">Dejar mi testimonio</button>
-</div>
+            <button id="openModal" class="btn-secondary">Dejar mi testimonio</button>
+        </div>
+    </div>
 </section>
 
 <section id="contact" class="contact-wrapper container">
@@ -175,18 +168,15 @@
         <img src="LogoAgencia.jpeg" alt="M&A Creators Logo" class="agency-logo">
         <h2>M&A Creators</h2>
         <div class="hero-bullets">
-        <p>Expertos en sistemas de ventas automatizados.</p>
-        <span><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/checkmarx.svg" class="icon-white"> Produccion Audiovisual Profesional / IA</span>
-        <span><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/checkmarx.svg" class="icon-white"> Pauta Avanzada en Meta Ads.</span>
-        <span><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/checkmarx.svg" class="icon-white"> Funnels de ventas & Landing Pages</span>
-        <div class="social-icons">
+            <p>Expertos en sistemas de ventas automatizados.</p>
+            <span><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/checkmarx.svg" class="icon-white"> Produccion Audiovisual Profesional / IA</span>
+            <span><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/checkmarx.svg" class="icon-white"> Pauta Avanzada en Meta Ads.</span>
+            <span><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/checkmarx.svg" class="icon-white"> Funnels de ventas & Landing Pages</span>
+            <div class="social-icons"></div>
         </div>
-      </div>
-            <h3>Derechos de autor reservados por M&A Creators.</h3>
+        <h3>Derechos de autor reservados por M&A Creators.</h3>
     </div>
-
-
-<footer class="footer-glass">
+</section> <footer class="footer-glass">
     <div class="container-footer">
         <p>© 2026 M&A Creators | Sistema de Ventas Digitales</p>
     </div>
