@@ -17,7 +17,7 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1025440863170543');
+    fbq('init', '1025440863170543'); // <-- NUEVO ID APLICADO CORRECTAMENTE
     fbq('track', 'PageView');
 
     // ==========================================
@@ -27,11 +27,11 @@
         
         // 1. RASTREO DE AUDIO POR CLIC GLOBAL (DELEGACIÓN DE EVENTOS)
         document.addEventListener('click', function(evento) {
-            // Buscamos si el clic fue en el botón muteBtn o en el icono de adentro (muteIcon)
             var target = evento.target;
+            // Buscamos si el clic fue en el botón muteBtn o en el icono de adentro (muteIcon)
             if (target.id === 'muteBtn' || target.id === 'muteIcon' || target.closest('#muteBtn')) {
                 
-                // Forzamos un retraso mínimo para leer el cambio físico en el tag video
+                // Retraso mínimo para leer el cambio de propiedad física en el DOM
                 setTimeout(function() {
                     var videoMya = document.getElementById('heroVideo');
                     if (videoMya) {
@@ -41,7 +41,7 @@
                             fbq('trackCustom', 'AudioVideoSilenciado', { proyecto: 'Landing M&A Creators' });
                         }
                     } else {
-                        // Respaldo técnico: Si el video no responde, reportamos el clic genérico al botón de sonido
+                        // Respaldo por si el tag video tiene un retraso de renderizado
                         fbq('trackCustom', 'ClicBotonSonido', { proyecto: 'Landing M&A Creators' });
                     }
                 }, 100);
@@ -68,7 +68,7 @@
     <noscript>
         <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1025440863170543&ev=PageView&noscript=1"/>
     </noscript>
-</head>
+    </head>
 <body>
 
 <header class="header">
